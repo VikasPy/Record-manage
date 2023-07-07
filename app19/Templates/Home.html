@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+</head>
+
+</form>
+<body style="background-color: rgb(138, 153, 236);">
+ <center>
+    <h1>XYZ  SEN SEC SCHOOL</h1>
+    
+    <form action="" method="post">
+        {% csrf_token %} 
+        <label for="Name">Name</label> <br>
+        <input type="text" name="nam" value="{{n.Name}}"> <br>
+
+        <label for="Name">Sction</label> <br>
+        <input type="text" name="sction" value="{{n.Sction}}"> <br>
+
+        <label for="Name">Roll No</label> <br>
+        <input type="number" name="rollno" value="{{n.Rollno}}"> <br>
+
+        <label for="Name">Email</label> <br>
+        <input type="email" name="email" value="{{n.email}}"> <br>
+
+        <label for="Name">joining Date</label> <br>
+        <input type="date" name="join" value="{{n.join}}"> <br>
+
+        <label for="Name">Contact</label> <br>
+        <input type="text" name="contct" value="{{n.Conntct}}"> <br>
+        <input type="submit" value="submit Here"> <br>
+
+   </form>
+   </center>
+   <table border="1">
+    <thead>
+            <th>Name</th> 
+            <th>Sction</th>
+            <th>Roll No</th>
+            <th>Email</th>
+            <th>joining Date</th>
+            <th>Contact</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </th>
+    </thead>
+    
+            <tbody>
+                
+                {% for i in ss %}
+                <tr>
+                    
+
+                <td>{{i.Name}}</td>
+                <td>{{i.Sction}}</td>
+                <td>{{i.Rollno}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.join}}</td>
+                <td>{{i.Conntct}}</td>
+                <td>
+                    <a href="{% url 'Update' i.id %}">Update</a>
+                </td>
+                <td>
+                    <a href="{% url 'delete' i.id %}">Delete</a>
+                </td>
+
+
+            </tr>
+            {% endfor %}
+            </tbody>
+    
+</table>
+
+    
+    
+</body>
+</html>
